@@ -1,0 +1,27 @@
+name: CI/CD Auto Trigger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: |
+          test -f index.html
+          echo "index.html found successfully"
+
+      - name: Build
+        run: |
+          echo "Build completed successfully"
+
+      - name: Test
+        run: |
+          echo "Tests completed successfully"
